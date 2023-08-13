@@ -1,138 +1,631 @@
 <template>
-  <!-- navbar -->
-  <nav class="bg-[#023047] w-full h-16">
-    <div
-      class="flex container mx-auto h-full items-center justify-between px-20"
-    >
-      <div class="flex items-center gap-10">
-        <h4 class="text-5xl font-medium text-[#fb8500]">linlin</h4>
-
-        <ul class="flex items-center justify-between gap-10">
-          <li
-            class="font-base text-white text-lg hover:text-[#ffb703] hover:cursor-pointer"
-          >
-            Home
-          </li>
-          <li
-            class="font-base text-white text-lg hover:text-[#ffb703] hover:cursor-pointer"
-          >
-            Movies
-          </li>
-          <li
-            class="font-base text-white text-lg hover:text-[#ffb703] hover:cursor-pointer"
-          >
-            Serial TV
-          </li>
-          <li
-            class="font-base text-white text-lg hover:text-[#ffb703] hover:cursor-pointer"
-          >
-            Favorites
-          </li>
-        </ul>
-      </div>
-
-      <div>
-        <form>
-          <div class="relative">
-            <input
-              type="search"
-              class="w-80 h-10 rounded-full px-10 outline-none border border-gray-300 bg-[#063e56] focus:ring-blue-500 focus:border-blue-500 placeholder-gray-100 text-white font-medium"
-              placeholder="Search movies ..."
-              required
-            />
-
-            <div class="absolute top-3 left-4">
-              <svg
-                class="w-4 h-4 text-gray-500 dark:text-gray-400"
-                aria-hidden="true"
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 20 20"
-              >
-                <path
-                  stroke="currentColor"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                />
-              </svg>
-            </div>
-          </div>
-        </form>
-      </div>
+  <nav>
+    <div class="bg-[#032541] py-4">
+      <ul class="flex justify-between px-5 items-center">
+        <li class="text-white">
+          <font-awesome-icon :icon="['fas', 'bars']" />
+        </li>
+        <li class="ml-10">
+          <img
+            src="../assets/img/mini-tmdb-logo.svg"
+            alt="mini-logo-tmdb"
+            class="w-14"
+          />
+        </li>
+        <li class="flex items-center gap-6 text-lg font-bold">
+          <font-awesome-icon :icon="['fas', 'user']" class="text-white" />
+          <font-awesome-icon
+            :icon="['fas', 'magnifying-glass']"
+            class="text-cyan-500"
+          />
+        </li>
+      </ul>
     </div>
   </nav>
 
-  <!-- content -->
-  <section class="h-full bg-[#f7f2f7] py-10 container mx-auto px-20">
-    <div class="grid grid-cols-3 gap-5 h-[600px] bg-green-400 mb-10">
-      <div
-        class="col-span-2 bg-blue-600 relative w-full overflow-x-scroll no-scrollbar"
-      >
-        <div class="bg-orange-100 h-full absolute flex gap-8">
-          <div class="bg-blue-100 w-[911px]">x</div>
-          <div class="bg-blue-100 w-[911px]">x</div>
-          <div class="bg-blue-100 w-[911px]">x</div>
-        </div>
-      </div>
-      <div class="bg-red-600">x</div>
-    </div>
-
-    <!-- Top 10 -->
-    <div class="h-full space-y-5 mb-20">
-      <div class="bg-green-100 border-l-[7px] border-[#ffb703]">
-        <h2 class="text-4xl font-bold text-[#023047] pl-3">
-          Lorem, ipsum dolor.
-        </h2>
-      </div>
-
-      <div
-        class="bg-red-100 w-full h-[500px] overflow-x-scroll no-scrollbar relative"
-      >
-        <div class="absolute h-full flex gap-8">
-          <div class="bg-blue-600 h-full w-72"></div>
-          <div class="bg-blue-600 h-full w-72"></div>
-          <div class="bg-blue-600 h-full w-72"></div>
-          <div class="bg-blue-600 h-full w-72"></div>
-          <div class="bg-blue-600 h-full w-72"></div>
-          <div class="bg-blue-600 h-full w-72"></div>
-        </div>
-      </div>
-    </div>
-
-    <!-- Top 10 -->
-    <div class="h-full space-y-5">
-      <div class="bg-green-100 border-l-[7px] border-[#ffb703]">
-        <h2 class="text-4xl font-bold text-[#023047] pl-3">
-          Lorem, ipsum dolor.
-        </h2>
-      </div>
-      <p class="text-[#219ebc] font-semibold text-xl">
-        Lorem ipsum dolor sit amet.
-      </p>
-
-      <div
-        class="bg-red-100 w-full h-[500px] overflow-x-scroll no-scrollbar relative scroll-none"
-      >
-        <div class="absolute h-full flex gap-8">
-          <div class="bg-blue-600 h-full w-72"></div>
-          <div class="bg-blue-600 h-full w-72"></div>
-          <div class="bg-blue-600 h-full w-72"></div>
-          <div class="bg-blue-600 h-full w-72"></div>
-          <div class="bg-blue-600 h-full w-72"></div>
-          <div class="bg-blue-600 h-full w-72"></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer
-    class="bg-[#023047] py-5 grid place-content-center place-items-center space-y-5"
+  <!-- carousel -->
+  <div
+    class="h-[300px] bg-cover p-5"
+    style="background-image: url('/src/assets/img/carousel.jpg')"
   >
-    <p class="text-slate-100 font-semibold text-base">
-      Find me on github. @muhamadijlal_
+    <h4 class="font-bold text-white text-[45px]">Selamat datang</h4>
+    <p class="font-semibold text-white text-3xl">
+      Millions of movies, TV shows and people to discover. Explore now.
     </p>
-  </footer>
+
+    <div class="mt-6 h-12 relative">
+      <input
+        type="text"
+        class="bg-white w-full h-full px-6 rounded-full placeholder:text-gray-500 placeholder:text-lg"
+        placeholder="Cari..."
+      />
+      <button
+        class="color-gradient absolute top-0 -right-1 h-full px-6 rounded-full"
+      >
+        <span class="font-bold text-medium text-white">search</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- movies trending -->
+  <div class="py-5">
+    <div class="flex gap-1 items-center pb-5">
+      <h3 class="font-semibold text-2xl px-5">Trending</h3>
+      <div class="relative">
+        <font-awesome-icon
+          :icon="['fas', 'caret-down']"
+          class="absolute right-6 top-[10px] text-cyan-500 text-sm"
+        />
+        <div class="bg-slate-800 rounded-full">
+          <div
+            class="pl-6 pr-12 py-1 rounded-full appearance-none text-base flex items-center font-bold text-gradient outline-none"
+          >
+            Today
+          </div>
+        </div>
+      </div>
+    </div>
+    <div
+      x-data="scrollProgress"
+      class="fixed inline-flex items-center justify-center overflow-hidden rounded-full bottom-5 left-5"
+    >
+      <span
+        class="absolute text-xl text-blue-700"
+        x-text="`${percent}%`"
+      ></span>
+    </div>
+
+    <!-- slider -->
+    <div class="w-full relative h-80 overflow-x-scroll shadow-black">
+      <div class="flex gap-5 px-5 absolute">
+        <div class="h-80">
+          <div
+            class="w-40 h-2/3 bg-cover rounded-md mb-6 relative"
+            style="background-image: url('/src/assets/img/carousel.jpg')"
+          >
+            <div
+              class="w-10 h-10 bg-black rounded-full -bottom-5 left-2 absolute flex justify-center items-center"
+            >
+              <span class="text-white text-[10px] font-bold">99%</span>
+            </div>
+          </div>
+
+          <h5 class="text-base font-bold">No Hard feelings</h5>
+          <p class="text-md font-light text-slate-500">Jun 15, 2023</p>
+        </div>
+        <div class="h-80">
+          <div
+            class="w-40 h-2/3 bg-cover rounded-md mb-6"
+            style="background-image: url('/src/assets/img/carousel.jpg')"
+          ></div>
+
+          <h5 class="text-base font-bold">No Hard feelings</h5>
+          <p class="text-md font-light text-slate-500">Jun 15, 2023</p>
+        </div>
+        <div class="h-80">
+          <div
+            class="w-40 h-2/3 bg-cover rounded-md mb-6"
+            style="background-image: url('/src/assets/img/carousel.jpg')"
+          ></div>
+
+          <h5 class="text-base font-bold">No Hard feelings</h5>
+          <p class="text-md font-light text-slate-500">Jun 15, 2023</p>
+        </div>
+        <div class="h-80">
+          <div
+            class="w-40 h-2/3 bg-cover rounded-md mb-6"
+            style="background-image: url('/src/assets/img/carousel.jpg')"
+          ></div>
+
+          <h5 class="text-base font-bold">No Hard feelings</h5>
+          <p class="text-md font-light text-slate-500">Jun 15, 2023</p>
+        </div>
+        <div class="h-80">
+          <div class="w-2 h-2/3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="bg-[#032541] my-5 h-[350px] w-full">
+    <div class="p-5">
+      <h3 class="font-semibold text-2xl text-white">Latest Trailers</h3>
+    </div>
+
+    <div class="relative overflow-x-scroll w-full h-full">
+      <div class="flex gap-5 absolute px-5 pt-2">
+        <div class="flex flex-col items-center">
+          <div
+            class="w-80 h-44 rounded-md bg-cover hover:scale-105 duration-300 ease-out"
+            style="background-image: url('/src/assets/img/carousel.jpg')"
+          ></div>
+          <div class="flex flex-col items-center -space-y-1 p-2">
+            <h5 class="text-white font-bold text-lg">Kötü Adamın 10 Günü</h5>
+            <p class="text-white font-normal text-base">
+              Official Trailer [Subtitled]
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col items-center">
+          <div
+            class="w-80 h-44 rounded-md bg-cover hover:scale-105 duration-300 ease-out"
+            style="background-image: url('/src/assets/img/carousel.jpg')"
+          ></div>
+          <div class="flex flex-col items-center -space-y-1 p-2">
+            <h5 class="text-white font-bold text-lg">Kötü Adamın 10 Günü</h5>
+            <p class="text-white font-normal text-base">
+              Official Trailer [Subtitled]
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col items-center">
+          <div
+            class="w-80 h-44 rounded-md bg-cover hover:scale-105 duration-300 ease-out"
+            style="background-image: url('/src/assets/img/carousel.jpg')"
+          ></div>
+          <div class="flex flex-col items-center -space-y-1 p-2">
+            <h5 class="text-white font-bold text-lg">Kötü Adamın 10 Günü</h5>
+            <p class="text-white font-normal text-base">
+              Official Trailer [Subtitled]
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col items-center">
+          <div
+            class="w-80 h-44 rounded-md bg-cover hover:scale-105 duration-300 ease-out"
+            style="background-image: url('/src/assets/img/carousel.jpg')"
+          ></div>
+          <div class="flex flex-col items-center -space-y-1 p-2">
+            <h5 class="text-white font-bold text-lg">Kötü Adamın 10 Günü</h5>
+            <p class="text-white font-normal text-base">
+              Official Trailer [Subtitled]
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col items-center">
+          <div
+            class="w-80 h-44 rounded-md bg-cover hover:scale-105 duration-300 ease-out"
+            style="background-image: url('/src/assets/img/carousel.jpg')"
+          ></div>
+          <div class="flex flex-col items-center -space-y-1 p-2">
+            <h5 class="text-white font-bold text-lg">Kötü Adamın 10 Günü</h5>
+            <p class="text-white font-normal text-base">
+              Official Trailer [Subtitled]
+            </p>
+          </div>
+        </div>
+        <div class="w-1 h-44"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- movies trending -->
+  <div class="pt-5 pb-16">
+    <div class="flex gap-1 items-center pb-8">
+      <h3 class="font-semibold text-2xl pl-5 pr-3">Sedang Populer</h3>
+      <div class="relative">
+        <font-awesome-icon
+          :icon="['fas', 'caret-down']"
+          class="absolute right-5 top-[10px] text-cyan-500 text-sm"
+        />
+        <div class="bg-slate-800 rounded-full">
+          <div
+            class="pl-6 pr-10 py-1 rounded-full appearance-none text-base flex items-center font-bold text-gradient outline-none"
+          >
+            Streaming
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- slider -->
+    <div class="w-full relative h-80 overflow-x-scroll">
+      <div class="flex gap-5 px-5 absolute">
+        <div class="h-80">
+          <div
+            class="w-40 h-2/3 bg-cover rounded-md mb-6 relative"
+            style="background-image: url('/src/assets/img/carousel.jpg')"
+          >
+            <div
+              class="w-10 h-10 bg-black rounded-full -bottom-5 left-2 absolute flex justify-center items-center"
+            >
+              <span class="text-white text-[10px] font-bold">99%</span>
+            </div>
+          </div>
+
+          <h5 class="text-base font-bold">No Hard feelings</h5>
+          <p class="text-md font-light text-slate-500">Jun 15, 2023</p>
+        </div>
+        <div class="h-80">
+          <div
+            class="w-40 h-2/3 bg-cover rounded-md mb-6"
+            style="background-image: url('/src/assets/img/carousel.jpg')"
+          ></div>
+
+          <h5 class="text-base font-bold">No Hard feelings</h5>
+          <p class="text-md font-light text-slate-500">Jun 15, 2023</p>
+        </div>
+        <div class="h-80">
+          <div
+            class="w-40 h-2/3 bg-cover rounded-md mb-6"
+            style="background-image: url('/src/assets/img/carousel.jpg')"
+          ></div>
+
+          <h5 class="text-base font-bold">No Hard feelings</h5>
+          <p class="text-md font-light text-slate-500">Jun 15, 2023</p>
+        </div>
+        <div class="h-80">
+          <div
+            class="w-40 h-2/3 bg-cover rounded-md mb-6"
+            style="background-image: url('/src/assets/img/carousel.jpg')"
+          ></div>
+
+          <h5 class="text-base font-bold">No Hard feelings</h5>
+          <p class="text-md font-light text-slate-500">Jun 15, 2023</p>
+        </div>
+        <div class="h-80">
+          <div
+            class="w-40 h-2/3 bg-cover rounded-md mb-6"
+            style="background-image: url('/src/assets/img/carousel.jpg')"
+          ></div>
+
+          <h5 class="text-base font-bold">No Hard feelings</h5>
+          <p class="text-md font-light text-slate-500">Jun 15, 2023</p>
+        </div>
+        <div class="h-80">
+          <div class="w-2 h-2/3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- movies trending -->
+  <div class="pb-5">
+    <div class="flex gap-1 items-center pb-8">
+      <h3 class="font-semibold text-2xl pl-5 pr-3">Free to watch</h3>
+      <div class="relative">
+        <font-awesome-icon
+          :icon="['fas', 'caret-down']"
+          class="absolute right-5 top-[10px] text-cyan-500 text-sm"
+        />
+        <div class="bg-slate-800 rounded-full">
+          <div
+            class="pl-6 pr-10 py-1 rounded-full appearance-none text-base flex items-center font-bold text-gradient outline-none"
+          >
+            Movies
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w-full relative h-80 overflow-x-scroll">
+      <div class="flex gap-5 px-5 absolute">
+        <div class="h-80">
+          <div
+            class="w-40 h-2/3 bg-cover rounded-md mb-6 relative"
+            style="background-image: url('/src/assets/img/carousel.jpg')"
+          >
+            <div
+              class="w-10 h-10 bg-black rounded-full -bottom-5 left-2 absolute flex justify-center items-center"
+            >
+              <span class="text-white text-[10px] font-bold">99%</span>
+            </div>
+          </div>
+
+          <h5 class="text-base font-bold">No Hard feelings</h5>
+          <p class="text-md font-light text-slate-500">Jun 15, 2023</p>
+        </div>
+        <div class="h-80">
+          <div
+            class="w-40 h-2/3 bg-cover rounded-md mb-6"
+            style="background-image: url('/src/assets/img/carousel.jpg')"
+          ></div>
+
+          <h5 class="text-base font-bold">No Hard feelings</h5>
+          <p class="text-md font-light text-slate-500">Jun 15, 2023</p>
+        </div>
+        <div class="h-80">
+          <div
+            class="w-40 h-2/3 bg-cover rounded-md mb-6"
+            style="background-image: url('/src/assets/img/carousel.jpg')"
+          ></div>
+
+          <h5 class="text-base font-bold">No Hard feelings</h5>
+          <p class="text-md font-light text-slate-500">Jun 15, 2023</p>
+        </div>
+        <div class="h-80">
+          <div
+            class="w-40 h-2/3 bg-cover rounded-md mb-6"
+            style="background-image: url('/src/assets/img/carousel.jpg')"
+          ></div>
+
+          <h5 class="text-base font-bold">No Hard feelings</h5>
+          <p class="text-md font-light text-slate-500">Jun 15, 2023</p>
+        </div>
+        <div class="h-80">
+          <div
+            class="w-40 h-2/3 bg-cover rounded-md mb-6"
+            style="background-image: url('/src/assets/img/carousel.jpg')"
+          ></div>
+
+          <h5 class="text-base font-bold">No Hard feelings</h5>
+          <p class="text-md font-light text-slate-500">Jun 15, 2023</p>
+        </div>
+        <div class="h-80">
+          <div class="w-2 h-2/3"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- slider -->
+
+  <div
+    class="bg-purple-800 px-5 py-8"
+    style="background-image: url('/src/assets/img/carousel.jpg')"
+  >
+    <h2 class="text-4xl font-bold text-white">Join Today</h2>
+    <p class="text-white text-lg py-5">
+      Get access to maintain your own <i>custom personal lists</i>,
+      <i>track what you've seen</i> and search and filter for
+      <i>what to watch next—</i>regardless if it's in theatres, on TV or
+      available on popular streaming services like Netflix, iflix, Viu, Hotstar,
+      and Catchplay.
+    </p>
+
+    <button
+      class="bg-purple-500 rounded-md px-5 py-2 font-bold text-white text-lg"
+    >
+      Sign Up
+    </button>
+
+    <ul class="text-white list-disc px-5 py-8">
+      <li>Enjoy TMDB ad free</li>
+      <li>Maintain a personal watchlist</li>
+      <li>
+        Filter by your subscribed streaming services and find something to watch
+      </li>
+      <li>Log the movies and TV shows you've seen</li>
+      <li>Build custom lists</li>
+      <li>Contribute to and improve our database</li>
+    </ul>
+  </div>
+
+  <div class="px-5 py-8">
+    <div class="flex items-center gap-10 leading-4 pb-5">
+      <h2 class="text-2xl font-semibold">Leaderboard</h2>
+      <ul class="list-disc">
+        <li>All time edits</li>
+        <li>Edit this week</li>
+      </ul>
+    </div>
+
+    <ol class="space-y-5">
+      <li class="flex gap-2 items-center">
+        <span
+          class="bg-blue-800 w-[70px] h-[58px] rounded-full border-box"
+        ></span>
+        <div class="leading-5 w-full">
+          <h5 class="font-semibold text-xl">HaidarIjlal</h5>
+          <div class="flex items-center gap-2">
+            <div class="color-gradient w-36 h-[10px] rounded-full"></div>
+            <span class="font-semibold">1234</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="color-gradient w-52 h-[10px] rounded-full"></div>
+            <span class="font-semibold">123,432</span>
+          </div>
+        </div>
+      </li>
+      <li class="flex gap-2 items-center">
+        <span
+          class="bg-blue-800 w-[70px] h-[58px] rounded-full border-box"
+        ></span>
+        <div class="leading-5 w-full">
+          <h5 class="font-semibold text-xl">HaidarIjlal</h5>
+          <div class="flex items-center gap-2">
+            <div class="color-gradient w-36 h-[10px] rounded-full"></div>
+            <span class="font-semibold">1234</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="color-gradient w-52 h-[10px] rounded-full"></div>
+            <span class="font-semibold">123,432</span>
+          </div>
+        </div>
+      </li>
+      <li class="flex gap-2 items-center">
+        <span
+          class="bg-blue-800 w-[70px] h-[58px] rounded-full border-box"
+        ></span>
+        <div class="leading-5 w-full">
+          <h5 class="font-semibold text-xl">HaidarIjlal</h5>
+          <div class="flex items-center gap-2">
+            <div class="color-gradient w-36 h-[10px] rounded-full"></div>
+            <span class="font-semibold">1234</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="color-gradient w-52 h-[10px] rounded-full"></div>
+            <span class="font-semibold">123,432</span>
+          </div>
+        </div>
+      </li>
+      <li class="flex gap-2 items-center">
+        <span
+          class="bg-blue-800 w-[70px] h-[58px] rounded-full border-box"
+        ></span>
+        <div class="leading-5 w-full">
+          <h5 class="font-semibold text-xl">HaidarIjlal</h5>
+          <div class="flex items-center gap-2">
+            <div class="color-gradient w-36 h-[10px] rounded-full"></div>
+            <span class="font-semibold">1234</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="color-gradient w-52 h-[10px] rounded-full"></div>
+            <span class="font-semibold">123,432</span>
+          </div>
+        </div>
+      </li>
+      <li class="flex gap-2 items-center">
+        <span
+          class="bg-blue-800 w-[70px] h-[58px] rounded-full border-box"
+        ></span>
+        <div class="leading-5 w-full">
+          <h5 class="font-semibold text-xl">HaidarIjlal</h5>
+          <div class="flex items-center gap-2">
+            <div class="color-gradient w-36 h-[10px] rounded-full"></div>
+            <span class="font-semibold">1234</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="color-gradient w-52 h-[10px] rounded-full"></div>
+            <span class="font-semibold">123,432</span>
+          </div>
+        </div>
+      </li>
+      <li class="flex gap-2 items-center">
+        <span
+          class="bg-blue-800 w-[70px] h-[58px] rounded-full border-box"
+        ></span>
+        <div class="leading-5 w-full">
+          <h5 class="font-semibold text-xl">HaidarIjlal</h5>
+          <div class="flex items-center gap-2">
+            <div class="color-gradient w-36 h-[10px] rounded-full"></div>
+            <span class="font-semibold">1234</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="color-gradient w-52 h-[10px] rounded-full"></div>
+            <span class="font-semibold">123,432</span>
+          </div>
+        </div>
+      </li>
+      <li class="flex gap-2 items-center">
+        <span
+          class="bg-blue-800 w-[70px] h-[58px] rounded-full border-box"
+        ></span>
+        <div class="leading-5 w-full">
+          <h5 class="font-semibold text-xl">HaidarIjlal</h5>
+          <div class="flex items-center gap-2">
+            <div class="color-gradient w-36 h-[10px] rounded-full"></div>
+            <span class="font-semibold">1234</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="color-gradient w-52 h-[10px] rounded-full"></div>
+            <span class="font-semibold">123,432</span>
+          </div>
+        </div>
+      </li>
+      <li class="flex gap-2 items-center">
+        <span
+          class="bg-blue-800 w-[70px] h-[58px] rounded-full border-box"
+        ></span>
+        <div class="leading-5 w-full">
+          <h5 class="font-semibold text-xl">HaidarIjlal</h5>
+          <div class="flex items-center gap-2">
+            <div class="color-gradient w-36 h-[10px] rounded-full"></div>
+            <span class="font-semibold">1234</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="color-gradient w-52 h-[10px] rounded-full"></div>
+            <span class="font-semibold">123,432</span>
+          </div>
+        </div>
+      </li>
+      <li class="flex gap-2 items-center">
+        <span
+          class="bg-blue-800 w-[70px] h-[58px] rounded-full border-box"
+        ></span>
+        <div class="leading-5 w-full">
+          <h5 class="font-semibold text-xl">HaidarIjlal</h5>
+          <div class="flex items-center gap-2">
+            <div class="color-gradient w-36 h-[10px] rounded-full"></div>
+            <span class="font-semibold">1234</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="color-gradient w-52 h-[10px] rounded-full"></div>
+            <span class="font-semibold">123,432</span>
+          </div>
+        </div>
+      </li>
+      <li class="flex gap-2 items-center">
+        <span
+          class="bg-blue-800 w-[70px] h-[58px] rounded-full border-box"
+        ></span>
+        <div class="leading-5 w-full">
+          <h5 class="font-semibold text-xl">HaidarIjlal</h5>
+          <div class="flex items-center gap-2">
+            <div class="color-gradient w-36 h-[10px] rounded-full"></div>
+            <span class="font-semibold">1234</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="color-gradient w-52 h-[10px] rounded-full"></div>
+            <span class="font-semibold">123,432</span>
+          </div>
+        </div>
+      </li>
+      <li class="flex gap-2 items-center">
+        <span
+          class="bg-blue-800 w-[70px] h-[58px] rounded-full border-box"
+        ></span>
+        <div class="leading-5 w-full">
+          <h5 class="font-semibold text-xl">HaidarIjlal</h5>
+          <div class="flex items-center gap-2">
+            <div class="color-gradient w-36 h-[10px] rounded-full"></div>
+            <span class="font-semibold">1234</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <div class="color-gradient w-52 h-[10px] rounded-full"></div>
+            <span class="font-semibold">123,432</span>
+          </div>
+        </div>
+      </li>
+    </ol>
+  </div>
+
+  <div class="bg-[#032541] pt-10 pb-28 px-5">
+    <button
+      class="bg-white rounded-md text-base font-bold uppercase px-5 py-2 mb-14"
+    >
+      <span class="text-gradient">gabung dengan komunitas</span>
+    </button>
+
+    <div class="flex flex-col space-y-5">
+      <div>
+        <h4 class="font-bold text-white text-xl uppercase">Dasar</h4>
+        <ul class="list-inside text-white text-lg">
+          <li>Tentang TMDB</li>
+          <li>Hubungi Kami</li>
+          <li>Forum Dukungan</li>
+          <li>API</li>
+          <li>Status Sistem</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold text-white text-xl uppercase">Sumbang</h4>
+        <ul class="list-inside text-white text-lg">
+          <li>Panduan Kontribusi</li>
+          <li>Tambah Film Baru</li>
+          <li>Tambah Serial TV Baru</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold text-white text-xl uppercase">Komunitas</h4>
+        <ul class="list-inside text-white text-lg">
+          <li>Pedoman</li>
+          <li>Diskusi</li>
+          <li>Papan Peringkat</li>
+          <li>Twitter</li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-bold text-white text-xl uppercase">Aturan</h4>
+        <ul class="list-inside text-white text-lg">
+          <li>Ketentuan Penggunaan</li>
+          <li>Ketentuan Penggunaan API</li>
+          <li>Keijakan Privasi</li>
+          <li>Permintaan Penghapusan DMCA</li>
+        </ul>
+      </div>
+    </div>
+    <div class="p-3 flex justify-center"></div>
+    <p class="text-[11.2px] text-center font-bold text-slate-700">
+      muhamadijlal_
+    </p>
+  </div>
 </template>
