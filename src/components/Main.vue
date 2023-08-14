@@ -1,28 +1,4 @@
 <template>
-  <nav>
-    <div class="bg-[#032541] py-4">
-      <ul class="flex justify-between px-5 items-center">
-        <li class="text-white">
-          <font-awesome-icon :icon="['fas', 'bars']" />
-        </li>
-        <li class="ml-10">
-          <img
-            src="../assets/img/mini-tmdb-logo.svg"
-            alt="mini-logo-tmdb"
-            class="w-14"
-          />
-        </li>
-        <li class="flex items-center gap-6 text-lg font-bold">
-          <font-awesome-icon :icon="['fas', 'user']" class="text-white" />
-          <font-awesome-icon
-            :icon="['fas', 'magnifying-glass']"
-            class="text-cyan-500"
-          />
-        </li>
-      </ul>
-    </div>
-  </nav>
-
   <!-- carousel -->
   <div
     class="h-[300px] bg-cover p-5"
@@ -36,7 +12,7 @@
     <div class="mt-6 h-12 relative">
       <input
         type="text"
-        class="bg-white w-full h-full px-6 rounded-full placeholder:text-gray-500 placeholder:text-lg"
+        class="bg-white w-full h-full px-6 rounded-full placeholder:text-gray-500 placeholder:text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
         placeholder="Cari..."
       />
       <button
@@ -576,56 +552,5 @@
         </div>
       </li>
     </ol>
-  </div>
-
-  <div class="bg-[#032541] pt-10 pb-28 px-5">
-    <button
-      class="bg-white rounded-md text-base font-bold uppercase px-5 py-2 mb-14"
-    >
-      <span class="text-gradient">gabung dengan komunitas</span>
-    </button>
-
-    <div class="flex flex-col space-y-5">
-      <div>
-        <h4 class="font-bold text-white text-xl uppercase">Dasar</h4>
-        <ul class="list-inside text-white text-lg">
-          <li>Tentang TMDB</li>
-          <li>Hubungi Kami</li>
-          <li>Forum Dukungan</li>
-          <li>API</li>
-          <li>Status Sistem</li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-bold text-white text-xl uppercase">Sumbang</h4>
-        <ul class="list-inside text-white text-lg">
-          <li>Panduan Kontribusi</li>
-          <li>Tambah Film Baru</li>
-          <li>Tambah Serial TV Baru</li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-bold text-white text-xl uppercase">Komunitas</h4>
-        <ul class="list-inside text-white text-lg">
-          <li>Pedoman</li>
-          <li>Diskusi</li>
-          <li>Papan Peringkat</li>
-          <li>Twitter</li>
-        </ul>
-      </div>
-      <div>
-        <h4 class="font-bold text-white text-xl uppercase">Aturan</h4>
-        <ul class="list-inside text-white text-lg">
-          <li>Ketentuan Penggunaan</li>
-          <li>Ketentuan Penggunaan API</li>
-          <li>Keijakan Privasi</li>
-          <li>Permintaan Penghapusan DMCA</li>
-        </ul>
-      </div>
-    </div>
-    <div class="p-3 flex justify-center"></div>
-    <p class="text-[11.2px] text-center font-bold text-slate-700">
-      muhamadijlal_
-    </p>
   </div>
 </template>
