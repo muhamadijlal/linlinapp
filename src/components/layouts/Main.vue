@@ -1,16 +1,19 @@
 <script setup>
-import ListTrending from "@/components/ListTrending.vue";
 import ListTrailers from "@/components/ListTrailers.vue";
-import ListPopular from "@/components/ListPopular.vue";
 import ListMovies from "@/components/ListMovies.vue";
 import ItemsLeaderboard from "@/components/ItemsLeaderboard.vue";
+
+import { ref } from "vue";
+
+const isHidden = ref(true);
+
+const listsCategory = ["On TV", "For Rent", "In Theaters"];
 </script>
 
 <template>
   <!-- carousel -->
   <div
-    class="h-[300px] bg-cover p-5"
-    style="background-image: url('/src/assets/img/carousel.jpg')"
+    class="h-[300px] bg-cover p-5 bg-[linear-gradient(to_right,rgba(3,37,65,0.8),rgba(3,37,65,0)),url('/src/assets/img/carousel.jpg')]"
   >
     <h4 class="font-bold text-white text-[45px]">Selamat datang</h4>
     <p class="font-semibold text-white text-3xl">
@@ -20,7 +23,7 @@ import ItemsLeaderboard from "@/components/ItemsLeaderboard.vue";
     <div class="mt-6 h-12 relative">
       <input
         type="text"
-        class="bg-white w-full h-full px-6 rounded-full placeholder:text-gray-500 placeholder:text-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
+        class="bg-white w-full h-full px-6 rounded-full placeholder:text-gray-500 placeholder:text-xl focus:outline-none text-xl font-thin text-gray-500"
         placeholder="Cari..."
       />
       <button
@@ -32,44 +35,43 @@ import ItemsLeaderboard from "@/components/ItemsLeaderboard.vue";
   </div>
 
   <!-- movies trending -->
-  <div class="py-5">
-    <div class="flex gap-1 items-center pb-5">
-      <h3 class="font-semibold text-2xl px-5">Trending</h3>
-      <div class="relative">
-        <font-awesome-icon
-          :icon="['fas', 'caret-down']"
-          class="absolute right-6 top-[10px] text-cyan-500 text-sm"
-        />
-        <div class="bg-slate-800 rounded-full">
+  <ListMovies categoryName="Today" :listsCategory="['This week']">
+    Trending
+  </ListMovies>
+
+  <div class="bg-[#032541] my-5 h-[350px] w-full">
+    <div class="p-5 flex gap-5 items-center">
+      <h3 class="font-semibold text-2xl text-white">Latest Trailers</h3>
+
+      <div class="relative z-50">
+        <div
+          class="color-gradient-light rounded-full border border-teal-600"
+          @click="isHidden = !isHidden"
+        >
+          <font-awesome-icon
+            :icon="['fas', 'caret-down']"
+            class="absolute right-6 top-[10px] text-slate-800 text-sm"
+          />
           <div
-            class="pl-6 pr-12 py-1 rounded-full appearance-none text-base flex items-center font-bold text-gradient outline-none"
+            class="pl-6 pr-12 py-1 rounded-full appearance-none text-base flex items-center font-bold text-slate-800 outline-none"
           >
-            Today
+            Streaming
+          </div>
+        </div>
+
+        <div
+          class="color-gradient-light w-full absolute top-1/2 -z-10 border border-teal-600 pt-4 pb-2 rounded-b-2xl"
+          :class="{ hidden: isHidden }"
+        >
+          <div
+            class="font-bold text-slate-800 flex flex-col items-start ml-[23px]"
+            v-for="(item, index) in listsCategory"
+            :key="index"
+          >
+            <p>{{ item }}</p>
           </div>
         </div>
       </div>
-    </div>
-    <div
-      x-data="scrollProgress"
-      class="fixed inline-flex items-center justify-center overflow-hidden rounded-full bottom-5 left-5"
-    >
-      <span
-        class="absolute text-xl text-blue-700"
-        x-text="`${percent}%`"
-      ></span>
-    </div>
-
-    <!-- slider -->
-    <div class="w-full relative h-80 overflow-x-scroll shadow-black">
-      <div class="flex gap-5 px-5 absolute">
-        <ListTrending v-for="index in 10" :key="index" />
-      </div>
-    </div>
-  </div>
-
-  <div class="bg-[#032541] my-5 h-[350px] w-full">
-    <div class="p-5">
-      <h3 class="font-semibold text-2xl text-white">Latest Trailers</h3>
     </div>
 
     <div class="relative overflow-x-scroll w-full h-full">
@@ -81,67 +83,19 @@ import ItemsLeaderboard from "@/components/ItemsLeaderboard.vue";
     </div>
   </div>
 
-  <div class="pt-5 pb-16">
-    <div class="flex gap-1 items-center pb-8">
-      <h3 class="font-semibold text-2xl pl-5 pr-3">Sedang Populer</h3>
-      <div class="relative">
-        <font-awesome-icon
-          :icon="['fas', 'caret-down']"
-          class="absolute right-5 top-[10px] text-cyan-500 text-sm"
-        />
-        <div class="bg-slate-800 rounded-full">
-          <div
-            class="pl-6 pr-10 py-1 rounded-full appearance-none text-base flex items-center font-bold text-gradient outline-none"
-          >
-            Streaming
-          </div>
-        </div>
-      </div>
-    </div>
+  <ListMovies
+    categoryName="Streaming"
+    :listsCategory="['On TV', 'For Rent', 'In Theaters']"
+  >
+    Sedang populer
+  </ListMovies>
 
-    <div class="w-full relative h-80 overflow-x-scroll">
-      <div class="flex gap-5 px-5 absolute">
-        <ListPopular v-for="index in 10" :key="index" />
-
-        <div class="h-80">
-          <div class="w-2 h-2/3"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- movies trending -->
-  <div class="pb-5">
-    <div class="flex gap-1 items-center pb-8">
-      <h3 class="font-semibold text-2xl pl-5 pr-3">Free to watch</h3>
-      <div class="relative">
-        <font-awesome-icon
-          :icon="['fas', 'caret-down']"
-          class="absolute right-5 top-[10px] text-cyan-500 text-sm"
-        />
-        <div class="bg-slate-800 rounded-full">
-          <div
-            class="pl-6 pr-10 py-1 rounded-full appearance-none text-base flex items-center font-bold text-gradient outline-none"
-          >
-            Movies
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="w-full relative h-80 overflow-x-scroll">
-      <div class="flex gap-5 px-5 absolute">
-        <ListMovies v-for="index in 10" :key="index" />
-
-        <div class="h-80">
-          <div class="w-2 h-2/3"></div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- slider -->
+  <ListMovies categoryName="Movies" :listsCategory="['TV']">
+    Free to watch
+  </ListMovies>
 
   <div
-    class="bg-purple-800 px-5 py-8"
+    class="px-5 py-8 fill-purple-800"
     style="background-image: url('/src/assets/img/carousel.jpg')"
   >
     <h2 class="text-4xl font-bold text-white">Join Today</h2>

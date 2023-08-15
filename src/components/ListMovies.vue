@@ -1,17 +1,66 @@
+<script setup>
+import ListItems from "@/components/ListItems.vue";
+import { ref } from "vue";
+
+const isHidden = ref(true);
+
+defineProps({
+  categoryName: { default: "Today", type: String },
+  listsCategory: { default: "This Week", type: Array },
+});
+</script>
+
 <template>
-  <div class="h-80">
-    <div
-      class="w-40 h-2/3 bg-cover rounded-md mb-6 relative"
-      style="background-image: url('/src/assets/img/carousel.jpg')"
-    >
-      <div
-        class="w-10 h-10 bg-black rounded-full -bottom-5 left-2 absolute flex justify-center items-center"
-      >
-        <span class="text-white text-[10px] font-bold">99%</span>
+  <div
+    class="py-5 bg-no-repeat bg-center bg-contain"
+    style="background-image: url('/src/assets/img/bg-grafik.svg')"
+  >
+    <div class="flex gap-1 items-center pb-10">
+      <h3 class="font-semibold text-2xl px-5">
+        <slot />
+      </h3>
+      <div class="relative z-50">
+        <div class="bg-slate-800 rounded-full" @click="isHidden = !isHidden">
+          <font-awesome-icon
+            :icon="['fas', 'caret-down']"
+            class="absolute right-6 top-[10px] text-cyan-500 text-sm"
+          />
+          <div
+            class="pl-6 pr-12 py-1 rounded-full appearance-none text-base flex items-center font-bold text-gradient outline-none"
+          >
+            {{ categoryName }}
+          </div>
+        </div>
+
+        <div
+          class="color-gradient w-full absolute top-1/2 -z-10 border border-slate-900 pt-4 pb-2 rounded-b-2xl"
+          :class="{ hidden: isHidden }"
+        >
+          <div
+            class="font-bold text-slate-800 flex flex-col items-start ml-[23px]"
+            v-for="(item, index) in listsCategory"
+            :key="index"
+          >
+            <p>{{ item }}</p>
+          </div>
+        </div>
       </div>
     </div>
+    <div
+      x-data="scrollProgress"
+      class="fixed inline-flex items-center justify-center overflow-hidden rounded-full bottom-5 left-5"
+    >
+      <span
+        class="absolute text-xl text-blue-700"
+        x-text="`${percent}%`"
+      ></span>
+    </div>
 
-    <h5 class="text-base font-bold">No Hard feelings</h5>
-    <p class="text-md font-light text-slate-500">Jun 15, 2023</p>
+    <!-- slider -->
+    <div class="w-full relative h-80 overflow-x-scroll">
+      <div class="flex gap-5 px-5 absolute">
+        <ListItems v-for="index in 10" :key="index" />
+      </div>
+    </div>
   </div>
 </template>
