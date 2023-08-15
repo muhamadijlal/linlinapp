@@ -11,6 +11,10 @@
   @apply bg-gradient-to-r from-[#1ed5a9] from-0% to-100% to-[#04c0e1];
 }
 
+.color-gradient-light {
+  @apply bg-gradient-to-r from-[#c0fecf] from-0% to-100% to-[#1ed5a9];
+}
+
 .text-gradient {
   @apply bg-clip-text text-transparent color-gradient;
 }
