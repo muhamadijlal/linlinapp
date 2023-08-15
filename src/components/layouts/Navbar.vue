@@ -7,7 +7,7 @@
         </li>
         <li class="ml-10">
           <img
-            src="../assets/img/mini-tmdb-logo.svg"
+            src="../../assets/img/mini-tmdb-logo.svg"
             alt="mini-logo-tmdb"
             class="w-14"
           />
