@@ -1,13 +1,13 @@
 <script setup>
-import Navbar12 from "@/components/Navbar.vue";
-import Main12 from "@/components/Main.vue";
-import Footer12 from "@/components/Footer.vue";
+import Navbar from "@/components/layouts/Navbar.vue";
+import Main from "@/components/layouts/Main.vue";
+import Footer from "@/components/layouts/Footer.vue";
 </script>
 
 <template>
-  <Navbar12 />
+  <Navbar />
 
-  <Main12 />
+  <Main />
 
-  <Footer12 />
+  <Footer />
 </template>
