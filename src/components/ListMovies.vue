@@ -46,15 +46,6 @@ defineProps({
         </div>
       </div>
     </div>
-    <div
-      x-data="scrollProgress"
-      class="fixed inline-flex items-center justify-center overflow-hidden rounded-full bottom-5 left-5"
-    >
-      <span
-        class="absolute text-xl text-blue-700"
-        x-text="`${percent}%`"
-      ></span>
-    </div>
 
     <!-- slider -->
     <div class="w-full relative h-80 overflow-x-scroll">
