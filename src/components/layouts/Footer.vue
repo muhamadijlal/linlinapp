@@ -1,5 +1,5 @@
 <template>
-  <footer class="bg-[#032541] pt-10 pb-16 px-5">
+  <div class="bg-[#032541] pt-10 pb-16 px-5">
     <button
       class="bg-white rounded-md text-base font-bold uppercase px-5 py-2 mb-14"
     >
@@ -48,5 +48,5 @@
     <p class="text-[11.2px] text-center font-bold text-slate-700">
       muhamadijlal_
     </p>
-  </footer>
+  </div>
 </template>

@@ -9,9 +9,18 @@
       >
         <span class="text-white text-[10px] font-bold">99%</span>
       </div>
+
+      <div
+        class="bg-gray-200 rounded-full absolute right-2 top-2 opacity-50 w-5 h-5 flex items-center justify-center hover:bg-sky-500"
+      >
+        <font-awesome-icon
+          :icon="['fas', 'ellipsis']"
+          class="text-lg bg-clip-text"
+        />
+      </div>
     </div>
 
     <h5 class="text-base font-bold">No Hard feelings</h5>
-    <p class="text-md font-light text-slate-500">Jun 15, 2023</p>
+    <p class="text-md font-base text-slate-500">Jun 15, 2023</p>
   </div>
 </template>

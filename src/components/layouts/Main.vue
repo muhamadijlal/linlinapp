@@ -45,7 +45,7 @@ const listsCategory = ["On TV", "For Rent", "In Theaters"];
 
       <div class="relative z-50">
         <div
-          class="color-gradient-light rounded-full border border-teal-600"
+          class="color-gradient-light rounded-full"
           @click="isHidden = !isHidden"
         >
           <font-awesome-icon
@@ -60,7 +60,7 @@ const listsCategory = ["On TV", "For Rent", "In Theaters"];
         </div>
 
         <div
-          class="color-gradient-light w-full absolute top-1/2 -z-10 border border-teal-600 pt-4 pb-2 rounded-b-2xl"
+          class="color-gradient-light w-full absolute top-1/2 -z-10 pt-4 pb-2 rounded-b-2xl"
           :class="{ hidden: isHidden }"
         >
           <div
@@ -128,10 +128,18 @@ const listsCategory = ["On TV", "For Rent", "In Theaters"];
   <div class="px-5 py-8">
     <div class="flex items-center gap-10 leading-4 pb-5">
       <h2 class="text-2xl font-semibold">Leaderboard</h2>
-      <ul class="list-disc">
-        <li>All time edits</li>
-        <li>Edit this week</li>
-      </ul>
+      <div class="flex flex-col space-y-1">
+        <div class="flex items-center gap-2">
+          <div class="w-[10px] h-[10px] rounded-full color-gradient"></div>
+          <p>All Time Edits</p>
+        </div>
+        <div class="flex items-center gap-2">
+          <div
+            class="w-[10px] h-[10px] rounded-full color-gradient-orange"
+          ></div>
+          <p>Edits This Week</p>
+        </div>
+      </div>
     </div>
 
     <ol class="space-y-5">

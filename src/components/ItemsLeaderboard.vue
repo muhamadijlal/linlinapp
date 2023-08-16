@@ -8,7 +8,7 @@
         <span class="font-semibold">1234</span>
       </div>
       <div class="flex items-center gap-2">
-        <div class="color-gradient w-52 h-[10px] rounded-full"></div>
+        <div class="color-gradient-orange w-52 h-[10px] rounded-full"></div>
         <span class="font-semibold">123,432</span>
       </div>
     </div>
