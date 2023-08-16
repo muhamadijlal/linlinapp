@@ -15,6 +15,10 @@
   @apply bg-gradient-to-r from-[#c0fecf] from-0% to-100% to-[#1ed5a9];
 }
 
+.color-gradient-orange {
+  @apply bg-gradient-to-r from-[#fdc170] from-0% to-100% to-[#d93b63];
+}
+
 .text-gradient {
   @apply bg-clip-text text-transparent color-gradient;
 }
