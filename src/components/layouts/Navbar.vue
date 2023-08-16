@@ -32,7 +32,7 @@ const isHidden = ref(true);
   </nav>
 
   <div
-    class="bg-[#032541] bg-opacity-90 w-[90%] backdrop-blur-md z-10 fixed h-full p-5"
+    class="bg-[#032541] bg-opacity-90 w-[90%] backdrop-blur-md z-[99] fixed h-full p-5"
     :class="{ hidden: isHidden }"
   >
     <div class="space-y-2">
