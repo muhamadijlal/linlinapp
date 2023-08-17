@@ -1,6 +1,12 @@
 <template>
   <li class="flex gap-2 items-center">
-    <span class="bg-blue-800 w-[70px] h-[58px] rounded-full border-box"></span>
+    <img
+      src="
+        https://ui-avatars.com/api/?name=haidar+ijlal&background=0284c7&color=fff
+      "
+      class="w-14 h-14 rounded-full"
+      alt="avatar"
+    />
     <div class="leading-5 w-full">
       <h5 class="font-semibold text-xl">HaidarIjlal</h5>
       <div class="flex items-center gap-2">
