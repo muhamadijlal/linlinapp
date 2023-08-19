@@ -1,5 +1,5 @@
 <script setup>
-import Percentage from "@/components/Percentage.vue"
+import Percentage from "@/components/movies/Percentage.vue"
 </script>
 
 <template>

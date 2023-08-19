@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Dashboard from "@/components/layouts/Dashboard.vue";
+import Dashboard from "@/layouts/Dashboard.vue";
 
 const routes = [
   {
