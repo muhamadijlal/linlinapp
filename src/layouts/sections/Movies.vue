@@ -1,5 +1,5 @@
 <script setup>
-import ListItems from "@/components/ListItems.vue";
+import ListMovies from "@/components/movies/ListMovies.vue";
 import { ref } from "vue";
 
 const isHidden = ref(true);
@@ -50,7 +50,7 @@ defineProps({
     <!-- slider -->
     <div class="w-full relative h-80 overflow-x-scroll">
       <div class="flex gap-5 px-5 absolute">
-        <ListItems v-for="index in 10" :key="index" />
+        <ListMovies v-for="index in 10" :key="index" />
       </div>
     </div>
   </div>
