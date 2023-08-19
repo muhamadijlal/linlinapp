@@ -1,7 +1,9 @@
 <script setup>
 import Trailers from "@/layouts/sections/Trailers.vue";
 import SectionHero from "@/layouts/sections/Hero.vue";
-import Movies from "@/layouts/sections/Movies.vue";
+import MoviesTrending from "@/layouts/sections/Movies/MoviesTrending.vue";
+import MoviesPopular from "@/layouts/sections/Movies/MoviesPopular.vue";
+import MoviesWatch from "@/layouts/sections/Movies/MoviesTrending.vue";
 import Join from "@/layouts/sections/Join.vue";
 import LeaderBoard from "@/layouts/sections/LeaderBoard.vue";
 </script>
@@ -9,22 +11,22 @@ import LeaderBoard from "@/layouts/sections/LeaderBoard.vue";
 <template>
   <SectionHero/>
 
-  <Movies categoryName="Today" :listsCategory="['This week']">
+  <MoviesTrending categoryName="Today" :listsCategory="['This week']">
     Trending
-  </Movies>
+  </MoviesTrending>
   
   <Trailers/>
   
-  <Movies
+  <MoviesPopular
     categoryName="Streaming"
     :listsCategory="['On TV', 'For Rent', 'In Theaters']"
   >
     Sedang populer
-  </Movies>
+  </MoviesPopular>
 
-  <Movies categoryName="Movies" :listsCategory="['TV']">
+  <MoviesWatch categoryName="Movies" :listsCategory="['TV']">
     Free to watch
-  </Movies>
+  </MoviesWatch>
 
   <Join />
 
