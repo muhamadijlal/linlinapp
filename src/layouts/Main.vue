@@ -3,7 +3,7 @@ import Trailers from "@/layouts/sections/Trailers.vue";
 import SectionHero from "@/layouts/sections/Hero.vue";
 import MoviesTrending from "@/layouts/sections/Movies/MoviesTrending.vue";
 import MoviesPopular from "@/layouts/sections/Movies/MoviesPopular.vue";
-import MoviesWatch from "@/layouts/sections/Movies/MoviesTrending.vue";
+import MoviesWatch from "@/layouts/sections/Movies/MoviesWatch.vue";
 import Join from "@/layouts/sections/Join.vue";
 import LeaderBoard from "@/layouts/sections/LeaderBoard.vue";
 </script>
