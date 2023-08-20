@@ -1,5 +1,6 @@
 <script setup>
 import ListMovies from "@/components/movies/ListMovies.vue";
+import SkeletonListMovies from "@/components/movies/SkeletonListMovies.vue";
 import axios from "axios";
 import { ref, reactive } from "vue";
 
@@ -45,9 +46,7 @@ fetchTrending();
 </script>
 
 <template>
-  <div v-if="partial.isLoading">Loading...</div>
   <div
-    v-else
     class="py-5 bg-no-repeat bg-center bg-contain"
     style="background-image: url('/src/assets/img/bg-grafik.svg')"
   >
@@ -89,7 +88,13 @@ fetchTrending();
     <!-- slider -->
     <div class="w-full relative h-80 overflow-x-scroll">
       <div class="flex gap-5 px-5 absolute">
+        <SkeletonListMovies
+          v-if="partial.isLoading"
+          v-for="(index, items) in 10"
+          :key="index"
+        />
         <ListMovies
+          v-else
           v-for="list in movies.results"
           :movie="list"
           :key="list.index"
