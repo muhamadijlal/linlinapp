@@ -8,7 +8,7 @@ defineProps({
 </script>
 
 <template>
-  <div class="h-80">
+  <div class="h-[350px]">
     <div
       class="w-40 h-2/3 bg-cover rounded-md mb-6 relative"
       :style="{
@@ -30,7 +30,9 @@ defineProps({
       </div>
     </div>
 
-    <h5 class="text-base font-bold">{{ movie.original_title }}</h5>
+    <h5 class="text-base font-bold">
+      {{ movie.original_title ?? movie.name }}
+    </h5>
     <p class="text-md font-base text-slate-500">
       {{ moment(movie.release_date).format("LL") }}
     </p>
