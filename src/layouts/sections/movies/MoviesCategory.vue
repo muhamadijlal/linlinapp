@@ -10,6 +10,8 @@ defineProps({
   listsCategory: Array,
   data: Object,
 });
+
+const isHidden = ref(true);
 </script>
 
 <template>
@@ -52,14 +54,10 @@ defineProps({
     <!-- slider -->
     <div class="w-full relative h-[350px] overflow-x-scroll">
       <div class="flex gap-5 px-5 absolute">
-        <SkeletonListMovies
-          v-if="partial.isLoading"
-          v-for="index in 10"
-          :key="index"
-        />
+        <SkeletonListMovies v-if="isLoading" v-for="index in 10" :key="index" />
         <ListMovies
           v-else
-          v-for="list in movies.results"
+          v-for="list in movies"
           :movie="list"
           :key="list.index"
         />
