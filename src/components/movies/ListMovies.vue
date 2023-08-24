@@ -18,7 +18,7 @@ defineProps({
           ')',
       }"
     >
-      <Percentage :percent="100" />
+      <Percentage :percent="movie.vote_average" />
 
       <div
         class="bg-gray-200 rounded-full absolute right-2 top-2 opacity-50 w-5 h-5 flex items-center justify-center hover:bg-sky-500"

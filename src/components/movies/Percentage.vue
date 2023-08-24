@@ -4,8 +4,18 @@ const props = defineProps({
   percent: Number,
 });
 
+function calculatePercent() {
+  return Math.round(props.percent * 10);
+}
+
 function scaleColor() {
-  return props.percent > 50 ? "text-green-500" : "text-yellow-300";
+  if (calculatePercent() <= 25) {
+    return "text-red-500";
+  } else if (calculatePercent() <= 50) {
+    return "text-yellow-500";
+  } else {
+    return "text-green-500";
+  }
 }
 </script>
 
@@ -28,7 +38,7 @@ function scaleColor() {
         :class="scaleColor()"
         stroke-width="2"
         :stroke-dasharray="circumference"
-        :stroke-dashoffset="circumference - percent"
+        :stroke-dashoffset="circumference - calculatePercent()"
         stroke-linecap="round"
         stroke="currentColor"
         fill="transparent"
@@ -38,7 +48,7 @@ function scaleColor() {
       />
     </svg>
     <p class="text-white text-[10px] font-bold absolute">
-      {{ Math.round(percent)
+      {{ calculatePercent()
       }}<span class="text-[5px] font-thin align-top">%</span>
     </p>
   </div>
